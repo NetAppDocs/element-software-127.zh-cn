@@ -1,0 +1,39 @@
+---
+section: hardware
+title: 安装和维护硬件
+url: "/hardware/index.html"
+entries:
+- title: H410S 和 H610S 硬件信息
+  url: "/hardware/concept_h410s_h610s_info.html"
+  entries:
+  - title: 安装 H410S 和 H610S 节点
+    url: "/hardware/task_h410s_h610s_install.html"
+  - title: 更换 H410S 节点
+    url: "/hardware/task_h410s_repl.html"
+  - title: 更换 H610S 节点
+    url: "/hardware/task_h610s_repl.html"
+  - title: 更换驱动器
+    url: "/hardware/task_hseries_driverepl.html"
+  - title: 更换电源设备
+    url: "/hardware/task_psu_repl.html"
+- title: SF 系列硬件信息
+  url: "/hardware/concept_sfseries_info.html"
+  entries:
+  - title: 更换机箱
+    url: "/hardware/task_sfseries_chassisrepl.html"
+  - title: 更换驱动器
+    url: "/hardware/task_sfseries_driverepl.html"
+  - title: 更换电源设备
+    url: "/hardware/task_sfseries_psurepl.html"
+- title: 返回出厂映像信息
+  entries:
+  - title: 配置恢复出厂映像
+    url: "/hardware/concept_rtfi_configure.html"
+  - title: RTFI部署和安装选项
+    url: "/hardware/task_rtfi_deployment_and_install_options.html"
+  - title: RTFI进程
+    url: "/hardware/task_rtfi_process.html"
+  - title: RTFI选项菜单
+    url: "/hardware/task_rtfi_options_menu.html"
+- title: 存储节点支持的固件版本
+  url: "/hardware/fw_storage_nodes.html"

@@ -1,0 +1,38 @@
+= 
+:allow-uri-read: 
+
+
+您可以与 NetApp 支持部门为 SSH 反向通道连接打开 TCP 端口。通过此连接， NetApp 支持部门可以登录到您的管理节点。
+
+.开始之前
+* 对于管理服务 2.18 及更高版本，默认情况下，管理节点上的远程访问功能处于禁用状态。要启用远程访问功能，请参见 https://docs.netapp.com/us-en/element-software/mnode/task_mnode_ssh_management.html["在管理节点上管理 SSH 功能"]。
+* 如果您的管理节点位于代理服务器之后，则 sshd.config 文件中需要以下 TCP 端口：
++
+[cols="15,25,60"]
+|===
+| TCP 端口 | 说明 | 连接方向 
+
+
+| 443 | API 调用 /HTTPS ，用于通过打开的支持通道向 Web UI 转发反向端口 | 管理节点到存储节点 
+
+
+| 22 | SSH 登录访问 | 管理节点到存储节点或从存储节点到管理节点 
+|===
+
+
+.步骤
+* 登录到管理节点并打开终端会话。
+* 在提示符处，输入以下内容：
++
+`rst -r  sfsupport.solidfire.com -u element -p <port_number>`
+
+* 要关闭远程支持通道，请输入以下内容：
++
+`rst --killall`
+
+* (可选)再次禁用。 https://docs.netapp.com/us-en/element-software/mnode/task_mnode_ssh_management.html["远程访问功能"]
++
+
+NOTE: 如果不禁用SSH、则它在管理节点上保持启用状态。启用了 SSH 的配置会通过更新和升级在管理节点上持续存在，直到手动禁用为止。
+
+

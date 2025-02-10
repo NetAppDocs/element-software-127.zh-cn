@@ -1,0 +1,103 @@
+---
+permalink: api/reference_element_api_getclusterinfo.html 
+sidebar: sidebar 
+keywords: cluster,get,info,getting,getclusterinfo 
+summary: 您可以使用 GetClusterInfo 方法返回有关集群的配置信息。 
+---
+= GetClusterInfo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 `GetClusterInfo`方法返回有关集群的配置信息。
+
+
+
+== 参数
+
+此方法没有输入参数。
+
+
+
+== 返回值
+
+此方法具有以下返回值：
+
+|===
+| 名称 | 说明 | 键入 
+
+
+ a| 
+ClusterInfo
+ a| 
+集群信息
+ a| 
+xref:reference_element_api_clusterinfo.adoc[ClusterInfo]
+
+|===
+
+
+== 请求示例
+
+此方法的请求类似于以下示例：
+
+[listing]
+----
+{
+   "method": "GetClusterInfo",
+   "params": {},
+   "id" : 1
+}
+----
+
+
+== 响应示例
+
+此方法返回类似于以下示例的响应：
+
+[listing]
+----
+{
+    "id": 1,
+    "result": {
+        "clusterInfo": {
+            "attributes": {},
+            "defaultProtectionScheme": "doubleHelix",
+            "enabledProtectionSchemes": [
+                "doubleHelix"
+            ],
+            "encryptionAtRestState": "disabled",
+            "ensemble": [
+                "10.10.10.32",
+                "10.10.10.34",
+                "10.10.10.35",
+                "10.10.10.36",
+                "10.10.10.37"
+            ],
+            "mvip": "10.10.11.225",
+            "mvipInterface": "team1G",
+            "mvipNodeID": 3,
+            "mvipVlanTag": "0",
+            "name": "ClusterName",
+            "repCount": 2,
+            "softwareEncryptionAtRestState": "enabled",
+            "supportedProtectionSchemes": [
+                "doubleHelix"
+            ],
+            "svip": "10.10.10.111",
+            "svipInterface": "team10G",
+            "svipNodeID": 3,
+            "svipVlanTag": "0",
+            "uniqueID": "psmp",
+            "uuid": "2f575d0c-36fe-406d-9d10-dbc1c306ade7"
+        }
+    }
+}
+----
+
+
+== 自版本以来的新增功能
+
+9.6

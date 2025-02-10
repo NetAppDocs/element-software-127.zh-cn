@@ -1,0 +1,170 @@
+---
+sidebar: sidebar 
+permalink: upgrade/task_hcc_upgrade_management_node.html 
+summary: 在 NetApp SolidFire 存储系统升级过程中，您需要升级管理节点。 
+keywords: netapp, cluster, management node, mNode, upgrade, 10, 11.0, 11.1, 11.3, 11.5, 11.7, 12.0, 12.2, 12.3, 12.3.1, 12.3.2, 12.3.x, 12.5, 12.7 
+---
+= 升级管理节点
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以将管理节点从12.3.x或更高版本升级到管理节点12.5或更高版本。
+
+升级存储集群上的 Element 软件不再需要升级管理节点操作系统。您只需将管理服务升级到最新版本、即可使用NetApp Hybrid Cloud Control执行Element升级。如果您希望出于安全修复等其他原因升级管理节点操作系统，请按照适用于您的方案的管理节点升级操作步骤进行操作。
+
+
+NOTE: 如果需要有关升级管理节点12.2或更早版本的信息，请参见 https://docs.netapp.com/us-en/element-software-123/upgrade/task_hcc_upgrade_management_node.html["Element 12.3.x管理节点升级文档"^]。
+
+.升级选项
+选择以下选项之一：
+
+* <<将管理节点从12.3.x或更高版本升级到版本12.5或更高版本>>
+* <<使用管理节点 REST API 重新配置身份验证>>
++
+如果您已按*顺序*更新(1)管理服务版本和(2) Element存储版本、并希望*保留*现有管理节点、请选择此选项：
+
+
+
+
+NOTE: 如果您未依次更新管理服务和 Element 存储，则无法使用此操作步骤重新配置身份验证。请改用相应的升级操作步骤。
+
+
+
+== 将管理节点从12.3.x或更高版本升级到版本12.5或更高版本
+
+您可以将管理节点从12.3.x或更高版本原位升级到版本12.5或更高版本、而无需配置新的管理节点虚拟机。
+
+
+NOTE: Element 12.5或更高版本的管理节点是可选的升级。现有部署不需要此功能。
+
+.您需要的内容
+* 管理节点 VM 的 RAM 为 24 GB 。
+* 您要升级的管理节点为 12.0 版，并使用 IPv4 网络。管理节点版本12.5或更高版本不支持IPv6。
++
+
+TIP: 要检查管理节点的版本，请登录到管理节点并在登录横幅中查看 Element 版本号。
+
+* 您已使用 NetApp Hybrid Cloud Control 将管理服务捆绑包更新为最新版本。您可以从以下IP访问NetApp混合云控制： `\https://<ManagementNodeIP>`
+* 如果要将管理节点更新到版本12.5或更高版本、则需要使用管理服务2.21.61或更高版本继续操作。
+* 您已按照的说明配置了一个额外的网络适配器(如果需要)link:../mnode/task_mnode_install_add_storage_NIC.html["配置其他存储 NIC"]。
++
+
+NOTE: 如果 eth0 无法路由到 SVIP ，则永久性卷可能需要额外的网络适配器。在 iSCSI 存储网络上配置一个新的网络适配器，以便配置永久性卷。
+
+* 存储节点正在运行Element 12.3.x或更高版本。
+
+
+.步骤
+. 使用 SSH 或控制台访问登录到管理节点虚拟机。
+. 将适用于Element的软件从NetApp支持站点下载 https://mysupport.netapp.com/site/products/all/details/element-software/downloads-tab["管理节点 ISO"^]到管理节点虚拟机。
++
+
+NOTE: ISO的名称类似于 `solidfire-fdva-<Element release>-patchX-XX.X.X.XXXX.iso`
+
+. 对下载的文件运行 md5sum 以检查下载的完整性，并将输出与 NetApp 支持站点上提供的 Element 软件进行比较，如以下示例所示：
++
+`sudo md5sum -b <path to iso>/solidfire-fdva-<Element release>-patchX-XX.X.X.XXXX.iso`
+
+. 使用以下命令挂载管理节点 ISO 映像并将其内容复制到文件系统：
++
+[listing]
+----
+sudo mkdir -p /upgrade
+----
++
+[listing]
+----
+sudo mount <solidfire-fdva-<Element release>-patchX-XX.X.X.XXXX.iso> /mnt
+----
++
+[listing]
+----
+sudo cp -r /mnt/* /upgrade
+----
+. 更改为主目录，然后从卸载ISO文件 `/mnt`：
++
+[listing]
+----
+sudo umount /mnt
+----
+. 删除 ISO 以节省管理节点上的空间：
++
+[listing]
+----
+sudo rm <path to iso>/solidfire-fdva-<Element release>-patchX-XX.X.X.XXXX.iso
+----
+. 在要升级的管理节点上，运行以下命令以升级管理节点操作系统版本。此脚本会在升级后保留所有必要的配置文件，例如 Active IQ 收集器和代理设置。
++
+[listing]
+----
+sudo /sf/rtfi/bin/sfrtfi_inplace file:///upgrade/casper/filesystem.squashfs sf_upgrade=1
+----
++
+升级过程完成后，管理节点将使用新操作系统重新启动。
+
++
+
+NOTE: 运行此步骤中所述的 sudo 命令后， SSH 会话将被终止。要继续监控，需要访问控制台。如果在执行升级时无法访问控制台，请在 15 到 30 分钟后重试 SSH 登录并验证连接。登录后，您可以在 SSH 横幅中确认新的操作系统版本，以指示升级已成功。
+
+. 在管理节点上、运行 `redeploy-mnode`脚本以保留先前的管理服务配置设置：
++
+
+NOTE: 此脚本会保留先前的管理服务配置，包括来自 Active IQ 收集器服务，控制器（ vCenter ）或代理的配置，具体取决于您的设置。
+
++
+[listing]
+----
+sudo /sf/packages/mnode/redeploy-mnode -mu <mnode user>
+----
+
+
+
+IMPORTANT: 如果先前已在管理节点上禁用SSH功能、则需要在已恢复的管理节点上启用link:../mnode/task_mnode_ssh_management.html["再次禁用 SSH"]。默认情况下、管理节点上会启用提供的SSH功能link:../mnode/task_mnode_enable_remote_support_connections.html["NetApp 支持远程支持通道（ RST ）会话访问"]。
+
+
+
+== 使用管理节点 REST API 重新配置身份验证
+
+如果已按顺序升级（ 1 ）个管理服务和（ 2 ）个 Element 存储，则可以保留现有管理节点。如果您遵循了其他升级顺序，请参见原位管理节点升级过程。
+
+.开始之前
+* 您已将管理服务更新到版本2.20.69或更高版本。
+* 存储集群运行的是Element 12.3或更高版本。
+* 您已按顺序更新管理服务，然后升级 Element 存储。除非按照所述顺序完成升级，否则无法使用此操作步骤重新配置身份验证。
+
+
+.步骤
+. 在管理节点上打开管理节点 REST API UI ：
++
+[listing]
+----
+https://<ManagementNodeIP>/mnode
+----
+. 选择 * 授权 * 并完成以下操作：
++
+.. 输入集群用户名和密码。
+.. 输入客户端ID、就像该值尚未填充一样 `mnode-client`。
+.. 选择 * 授权 * 以开始会话。
+
+
+. 从 REST API UI 中，选择 * POST /services/reuse-auth* 。
+. 选择 * 试用 * 。
+. 对于*load_images*参数，选择 `true`。
+. 选择 * 执行 * 。
++
+响应正文指示重新配置成功。
+
+
+
+[discrete]
+== 了解更多信息
+
+* https://docs.netapp.com/us-en/element-software/index.html["SolidFire 和 Element 软件文档"]
+* https://docs.netapp.com/us-en/vcp/index.html["适用于 vCenter Server 的 NetApp Element 插件"^]
+

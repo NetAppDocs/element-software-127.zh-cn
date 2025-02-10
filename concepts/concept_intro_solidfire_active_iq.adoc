@@ -1,0 +1,33 @@
+---
+permalink: concepts/concept_intro_solidfire_active_iq.html 
+sidebar: sidebar 
+keywords: solidfire, active, iq, activeiq, tool, aiq 
+summary: Active IQ 是一款基于 Web 的工具，可提供持续更新的集群范围数据历史视图。您可以为特定事件，阈值或指标设置警报。通过 Active IQ ，您可以监控系统性能和容量，并随时了解集群运行状况。 
+---
+= SolidFire Active IQ
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+https://activeiq.solidfire.com["SolidFire Active IQ"^]是一款基于Web的工具、可为集群范围的数据提供持续更新的历史视图。您可以为特定事件，阈值或指标设置警报。通过 SolidFire Active IQ ，您可以监控系统性能和容量，并随时了解集群运行状况。
+
+您可以在 SolidFire Active IQ 中找到有关您的系统的以下信息：
+
+* 节点数量和节点状态：运行状况良好，脱机或故障
+* 以图形方式表示CPU、内存使用情况和节点限制
+* 有关节点的详细信息，例如序列号，机箱中的插槽位置，型号以及存储节点上运行的 NetApp Element 软件版本
+* 有关虚拟机的 CPU 和存储相关信息
+
+
+要了解有关SolidFire Active IQ的信息，请参见 https://docs.netapp.com/us-en/solidfire-active-iq/index.html["SolidFire Active IQ 文档"^]。
+
+
+
+== 了解更多信息
+
+* https://docs.netapp.com/us-en/element-software/index.html["SolidFire 和 Element 软件文档"]
+* https://docs.netapp.com/us-en/vcp/index.html["适用于 vCenter Server 的 NetApp Element 插件"^]
+* https://mysupport.netapp.com/site/tools/tool-eula/5ddb829ebd393e00015179b2["适用于Active IQ的NetApp支持站点和工具"^]
+

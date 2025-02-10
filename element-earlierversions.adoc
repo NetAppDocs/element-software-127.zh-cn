@@ -1,0 +1,40 @@
+---
+sidebar: sidebar 
+permalink: element-earlierversions.html 
+keywords: earlier versions, element versions 
+summary: 如果您未运行最新版本，可以参考先前版本的文档。 
+---
+= 早期版本的 SolidFire 和 NetApp Element 软件文档
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp 支持站点 上提供了先前版本的文档。
+
+* https://docs.netapp.com/us-en/element-software-125/index.html["Element 12.5文档"^]
+* https://docs.netapp.com/us-en/element-software-123/index.html["Element 12.3.x文档"^]
+* https://mysupport.netapp.com/documentation/docweb/index.html?productID=63945&language=en-US["Element 12.2.1文档"^]
+* https://mysupport.netapp.com/documentation/docweb/index.html?productID=63593&language=en-US["Element 12.2文档"^]
+* https://mysupport.netapp.com/documentation/docweb/index.html?productID=63946&language=en-US["12.0.1文档"^]
+* https://mysupport.netapp.com/documentation/docweb/index.html?productID=63368&language=en-US["Element 12.0文档"^]
+* https://mysupport.netapp.com/documentation/docweb/index.html?productID=64187&language=en-US["11.8.2文档"^]
+* https://mysupport.netapp.com/documentation/docweb/index.html?productID=63944&language=en-US["11.8.1文档"^]
+* https://mysupport.netapp.com/documentation/docweb/index.html?productID=63293&language=en-US["Element 11.8文档"^]
+* https://mysupport.netapp.com/documentation/docweb/index.html?productID=63138&language=en-US["Element 11.7文档"^]
+* https://mysupport.netapp.com/documentation/docweb/index.html?productID=63207&language=en-US["11.5.1文档"^]
+* https://mysupport.netapp.com/documentation/docweb/index.html?productID=63058&language=en-US["Element 11.5文档"^]
+* https://mysupport.netapp.com/documentation/docweb/index.html?productID=63027&language=en-US["Element 11.3P1文档"^]
+* https://mysupport.netapp.com/documentation/docweb/index.html?productID=63206&language=en-US["Element 11.3.2文档"^]
+* https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=62654["Element 11.1文档和更早版本"^]
+
+
+
+
+== 了解更多信息
+
+* https://docs.netapp.com/us-en/element-software/index.html["SolidFire 和 Element 软件文档"]
+* https://docs.netapp.com/us-en/vcp/index.html["适用于 vCenter Server 的 NetApp Element 插件"^]
+

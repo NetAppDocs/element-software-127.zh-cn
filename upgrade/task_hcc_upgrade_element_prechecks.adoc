@@ -1,0 +1,251 @@
+---
+sidebar: sidebar 
+permalink: upgrade/task_hcc_upgrade_element_prechecks.html 
+summary: 在 NetApp SolidFire 存储系统升级过程中，您需要对 NetApp Element 软件运行状况检查。 
+keywords: netapp, storage prechecks, element upgrade, sfupgradecheck 
+---
+= 在升级存储之前，请运行 Element 存储运行状况检查
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须在升级 Element 存储之前运行运行运行状况检查，以确保集群中的所有存储节点均已准备好进行下一次 Element 存储升级。
+
+.您需要的内容
+* *管理服务*：您已更新到最新的管理服务包(2.10.27或更高版本)。
++
+
+IMPORTANT: 在升级 Element 软件之前，您必须升级到最新的管理服务包。
+
+* *管理节点*：您正在运行管理节点11.3或更高版本。
+* * Element Software*：您的集群版本运行的是NetApp Element 软件11.3或更高版本。
+* *最终用户许可协议(EULA)*：从管理服务2.20.69开始、您必须先接受并保存此EULA、然后才能使用NetApp混合云控制UI或API运行Element存储运行状况检查：
++
+.. 在Web浏览器中打开管理节点的IP地址：
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+.. 通过提供存储集群管理员凭据登录到 NetApp Hybrid Cloud Control 。
+.. 选择靠近接口右上角的 * 升级 * 。
+.. 此时将弹出EULA。向下滚动、选择*我接受当前更新和所有未来更新*、然后选择*保存*。
+
+
+
+
+.运行状况检查选项
+您可以使用NetApp Hybrid Cloud Control UI或NetApp Hybrid Cloud Control API运行运行状况检查：
+
+* <<在升级存储之前，请使用 NetApp Hybrid Cloud Control 运行 Element 存储运行状况检查>>(首选方法)
+
+
+您还可以了解有关此服务运行的存储运行状况检查的更多信息：
+
+* <<服务执行的存储运行状况检查>>
+
+
+
+
+== 在升级存储之前，请使用 NetApp Hybrid Cloud Control 运行 Element 存储运行状况检查
+
+使用 NetApp Hybrid Cloud Control ，您可以验证存储集群是否已做好升级准备。
+
+.步骤
+. 在Web浏览器中打开管理节点的IP地址：
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. 通过提供存储集群管理员凭据登录到 NetApp Hybrid Cloud Control 。
+. 选择靠近接口右上角的 * 升级 * 。
+. 在 * 升级 * 页面上，选择 * 存储 * 选项卡。
+. 选择要检查升级就绪的集群的运行状况检查image:hcc_healthcheck_icon.png["图标。"]。
+. 在 * 存储运行状况检查 * 页面上，选择 * 运行状况检查 * 。
+. 如果出现问题，请执行以下操作：
++
+.. 转至为每个问题描述列出的特定知识库文章，或者执行指定的补救措施。
+.. 如果指定了 KB ，请完成相关知识库文章中所述的过程。
+.. 解决集群问题后，选择 * 重新运行运行状况检查 * 。
+
+
+
+
+运行状况检查完成且无错误后，存储集群便可进行升级。请参见存储节点升级link:task_hcc_upgrade_element_software.html["说明"]以继续。
+
+
+
+== 在升级存储之前，请使用 API 运行 Element 存储运行状况检查
+
+您可以使用 REST API 验证存储集群是否已做好升级准备。运行状况检查可验证升级不存在任何障碍，例如待定节点，磁盘空间问题和集群故障。
+
+.步骤
+. 找到存储集群 ID ：
++
+.. 在管理节点上打开管理节点 REST API UI ：
++
+[listing]
+----
+https://<ManagementNodeIP>/mnode
+----
+.. 选择 * 授权 * 并完成以下操作：
++
+... 输入集群用户名和密码。
+... 输入客户端ID、就像该值尚未填充一样 `mnode-client`。
+... 选择 * 授权 * 以开始会话。
+... 关闭授权窗口。
+
+
+.. 在REST API UI中，选择 `GET /assets`。
+.. 选择 * 试用 * 。
+.. 选择 * 执行 * 。
+.. 从响应中、从 `"storage"`要检查升级准备情况的集群部分复制 `"id"`。
++
+
+NOTE: 请勿使用 `"parent"`本节中的值、因为这是管理节点的ID、而不是存储集群的ID。
+
++
+[listing, subs="+quotes"]
+----
+"config": {},
+"credentialid": "12bbb2b2-f1be-123b-1234-12c3d4bc123e",
+"host_name": "SF_DEMO",
+*"id": "12cc3a45-e6e7-8d91-a2bb-0bdb3456b789",*
+"ip": "10.123.12.12",
+"parent": "d123ec42-456e-8912-ad3e-4bd56f4a789a",
+"sshcredentialid": null,
+"ssl_certificate": null
+----
+
+
+. 对存储集群运行状况检查：
++
+.. 在管理节点上打开存储 REST API UI ：
++
+[listing]
+----
+https://<ManagementNodeIP>/storage/1/
+----
+.. 选择 * 授权 * 并完成以下操作：
++
+... 输入集群用户名和密码。
+... 输入客户端ID、就像该值尚未填充一样 `mnode-client`。
+... 选择 * 授权 * 以开始会话。
+... 关闭授权窗口。
+
+
+.. 选择 * POST /health-checks* 。
+.. 选择 * 试用 * 。
+.. 在参数字段中，输入在步骤 1 中获取的存储集群 ID 。
++
+[listing]
+----
+{
+  "config": {},
+  "storageId": "123a45b6-1a2b-12a3-1234-1a2b34c567d8"
+}
+----
+.. 选择 * 执行 * 可对指定存储集群运行状况检查。
++
+响应应指示状态为 `initializing`：
+
++
+[listing]
+----
+{
+  "_links": {
+    "collection": "https://10.117.149.231/storage/1/health-checks",
+    "log": "https://10.117.149.231/storage/1/health-checks/358f073f-896e-4751-ab7b-ccbb5f61f9fc/log",
+    "self": "https://10.117.149.231/storage/1/health-checks/358f073f-896e-4751-ab7b-ccbb5f61f9fc"
+  },
+  "config": {},
+  "dateCompleted": null,
+  "dateCreated": "2020-02-21T22:11:15.476937+00:00",
+  "healthCheckId": "358f073f-896e-4751-ab7b-ccbb5f61f9fc",
+  "state": "initializing",
+  "status": null,
+  "storageId": "c6d124b2-396a-4417-8a47-df10d647f4ab",
+  "taskId": "73f4df64-bda5-42c1-9074-b4e7843dbb77"
+}
+----
+.. 复制作为响应一部分的 `healthCheckID`。
+
+
+. 验证运行状况检查的结果：
++
+.. 选择 * 获取​ /health-t checks​ / ｛ healthCheckId ｝ * 。
+.. 选择 * 试用 * 。
+.. 在参数字段中输入运行状况检查 ID 。
+.. 选择 * 执行 * 。
+.. 滚动到响应正文的底部。
++
+如果所有运行状况检查均成功，则返回的结果类似于以下示例：
+
++
+[listing]
+----
+"message": "All checks completed successfully.",
+"percent": 100,
+"timestamp": "2020-03-06T00:03:16.321621Z"
+----
+
+
+. 如果 `message`返回结果指示存在集群运行状况问题、请执行以下操作：
++
+.. 选择 * 获取​ /health-t checks​ / ｛ healthCheckId ｝ /log*
+.. 选择 * 试用 * 。
+.. 在参数字段中输入运行状况检查 ID 。
+.. 选择 * 执行 * 。
+.. 查看任何特定错误并获取相关知识库文章链接。
+.. 转至为每个问题描述列出的特定知识库文章，或者执行指定的补救措施。
+.. 如果指定了 KB ，请完成相关知识库文章中所述的过程。
+.. 解决集群问题后，请再次运行 * 获取​ /health-m checks​ / ｛ healthCheckId ｝ /log* 。
+
+
+
+
+
+
+== 服务执行的存储运行状况检查
+
+存储运行状况检查会对每个集群进行以下检查。
+
+|===
+| 检查名称 | 节点 / 集群 | 说明 
+
+
+| check_async_results | 集群 | 验证数据库中的异步结果数是否低于阈值数。 
+
+
+| check_cluster_faults | 集群 | 验证是否没有任何升级阻止集群故障（如 Element 源中所定义）。 
+
+
+| check_upload_speed | 节点 | 测量存储节点与管理节点之间的上传速度。 
+
+
+| connection_speed_check | 节点 | 验证节点是否已连接到提供升级软件包的管理节点，并估计连接速度。 
+
+
+| check_cores | 节点 | 检查节点上的内核崩溃转储和核心文件。对于最近一段时间（阈值为 7 天）内发生的任何崩溃，此检查将失败。 
+
+
+| check_root_disk_space | 节点 | 验证根文件系统是否有足够的可用空间来执行升级。 
+
+
+| check_var_log_disk_space | 节点 | 验证可用空间是否 `/var/log`满足一定百分比的可用空间阈值。否则，检查将轮换并清除较早的日志，以便低于阈值。如果未能成功创建足够的可用空间，则检查将失败。 
+
+
+| check_pending_nodes | 集群 | 验证集群上是否没有待定节点。 
+|===
+[discrete]
+== 了解更多信息
+
+* https://docs.netapp.com/us-en/element-software/index.html["SolidFire 和 Element 软件文档"]
+* https://docs.netapp.com/us-en/vcp/index.html["适用于 vCenter Server 的 NetApp Element 插件"^]
+

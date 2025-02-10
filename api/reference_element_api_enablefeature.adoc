@@ -1,0 +1,86 @@
+---
+permalink: api/reference_element_api_enablefeature.html 
+sidebar: sidebar 
+keywords: SNMP,enable,enabling,EnableFeature,vvols,virtual volumes,FIPS,140-2,SnapMirror 
+summary: 您可以使用 EnableFeature 方法启用默认禁用的集群功能，例如 VVol 。 
+---
+= EnableFeature
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 `EnableFeature`方法启用默认处于禁用状态的集群功能、例如、在集群模式下启用的卷。
+
+
+
+== 参数
+
+此方法具有以下输入参数。
+
+
+NOTE: 对于运行 Element 软件 11.x 的系统，在设置保护域监控之前或之后启用虚拟卷会导致集群保护域功能仅在节点级别起作用。
+
+|===
+| 名称 | 说明 | 键入 | 默认值 | 必填 
+
+
+ a| 
+功能
+ a| 
+启用集群功能。可能值：
+
+* `fips`：为HTTPS通信启用FIPS 140-2认证加密。
+* `FipsDrives`：为存储集群启用FIPS 140-2驱动器支持。
+* `SnapMirror`：启用SnapMirror复制集群功能。
+* `vvols`：启用Element软件Vvol集群功能。
+
+ a| 
+string
+ a| 
+无
+ a| 
+是
+
+|===
+
+
+== 返回值
+
+此方法没有返回值。
+
+
+
+== 请求示例
+
+此方法的请求类似于以下示例：
+
+[listing]
+----
+{
+  "method": "EnableFeature",
+    "params": {
+        "feature" : "vvols"
+    },
+    "id": 1
+}
+----
+
+
+== 响应示例
+
+此方法返回类似于以下示例的响应：
+
+[listing]
+----
+{
+  "id": 1,
+  "result": {}
+}
+----
+
+
+== 自版本以来的新增功能
+
+9.6

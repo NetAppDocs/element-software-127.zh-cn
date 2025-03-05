@@ -150,7 +150,20 @@ boolean
  a| 
 scheduleInfo
  a| 
-包括为计划指定的唯一名称，所创建快照的保留期限以及从中创建快照的卷的卷 ID 。
+包括为计划指定的唯一名称，所创建快照的保留期限以及从中创建快照的卷的卷 ID 。有效值：
+
+* `enableRemoteReplication`：指示是否应将快照包括在远程复制中。boolean
+* `ensureSerialCreation`：指定在上一个快照复制正在进行中时是否应允许创建新快照。boolean
+* `name`：要使用的快照名称。string
+* `retention`：快照的保留时间。根据时间、它会以以下格式之一显示：
++
+** `fifo`：快照将按先进先出(FIFO)原则保留。如果为空，则快照将永久保留。string
+** "小时：分钟：秒"
+
+
+* `volumeID`：要包含在快照中的卷的ID。整型
+* `volumes`：要包含在组快照中的卷ID列表。（整型数组）
+
  a| 
 JSON 对象
 

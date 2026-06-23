@@ -1095,7 +1095,6 @@
   <block id="dc1cc8200d35d9ec64b7565d154fff16" category="paragraph">您可以为单个卷或多个卷创建克隆，以便为数据创建时间点副本。克隆卷时，系统会创建卷的快照，然后为该快照引用的数据创建一份副本。这是一个异步过程，此过程所需的时间量取决于要克隆的卷大小和当前集群负载。</block>
   <block id="b8a1cad4a50c9260122967b830aa2f1e" category="inline-link">挂载 VMFS 数据存储库副本</block>
   <block id="d79c3c87976b8fd24486c760b99214ec" category="inline-link">管理重复的 VMFS 数据存储库</block>
-  <block id="4a82b53219bfaabced3d1c81b475eff8" category="admonition">操作系统在处理克隆卷方面有所不同。VMware ESXi 会将克隆的卷视为卷副本或快照卷。此卷将成为可用于创建新数据存储库的设备。有关挂载克隆卷和处理Snapshot LUN的详细信息，请参见和<block ref="6865dba41e05c4300a16bf14013377d9" category="inline-link-rx"></block>上的VMware文档<block ref="e578a339e9493d9c63d57360db9fb8b0" category="inline-link-rx"></block>。</block>
   <block id="7df9bea854445d9f3836e4622d758b3b" category="admonition">在通过克隆到较小的大小截断克隆的卷之前，请确保准备好分区，使其适合较小的卷。</block>
   <block id="743554a1317a874d785bae30fdf78296" category="list-text">要克隆单个卷，请执行以下步骤：</block>
   <block id="0c45f82d13eb2f161b1469f4deca5df8" category="list-text">在 * 活动 * 页面上的卷列表中，单击要克隆的卷对应的 "Actions" 图标。</block>
@@ -2210,12 +2209,10 @@
   <block id="9ff8b52789fcf4cd8906204529630027" category="inline-link-macro">启用空闲加密</block>
   <block id="9775ebff49c9c41a12e6c29e1bd70869" category="list-text"><block ref="9775ebff49c9c41a12e6c29e1bd70869" category="inline-link-macro-rx"></block></block>
   <block id="f18eabe4a84a6e2242d692ca2cf29443" category="inline-link-macro">确定节点是否已准备好使用 FIPS 驱动器功能</block>
-  <block id="3befc506042904f1158e03c3b06326c9" category="list-text"><block ref="3befc506042904f1158e03c3b06326c9" category="inline-link-macro-rx"></block></block>
   <block id="9129c5de5ce167e52cf19ce107928361" category="inline-link-macro">启用 FIPS 驱动器功能</block>
   <block id="fa237f4a9021b3c873d56e11cd75c3c0" category="list-text"><block ref="fa237f4a9021b3c873d56e11cd75c3c0" category="inline-link-macro-rx"></block></block>
   <block id="e89087b4ddd023d83abba85fc6c56531" category="list-text"><block ref="e89087b4ddd023d83abba85fc6c56531" category="inline-link-macro-rx"></block></block>
   <block id="51583c6662a4696f300cf6e612dc8473" category="inline-link-macro">对 FIPS 驱动器功能进行故障排除</block>
-  <block id="7eb2f48f876157c4d3d83b53793193bc" category="list-text"><block ref="7eb2f48f876157c4d3d83b53793193bc" category="inline-link-macro-rx"></block></block>
   <block id="cb6022b21d38ad9c18b4e35db5ce4c0d" category="summary">您可以启用和禁用集群范围的空闲加密。默认情况下、不会启用此功能。要支持 FIPS 驱动器，必须启用空闲加密。</block>
   <block id="6fd7dcffc5fa89c76487c14dea6a6d74" category="list-text">在 NetApp Element 软件 UI 中，单击 * 集群 * &gt; * 设置 * 。</block>
   <block id="6abed5881b1693582a594003c78956a8" category="list-text">单击 * 启用空闲加密 * 。</block>
@@ -2863,7 +2860,6 @@
   <block id="8e9a3ba87453eb870e97d5a72d5d9aac" category="inline-link">取消注册</block>
   <block id="778212e26cda250d5f5f97f4685bf1e0" category="list-text">对于vCSA和Windows升级、是指<block ref="da392680dca74f52691137b810baae7b" category="inline-link-rx"></block>使用注册实用程序从与其关联的vCenter Server中获取的插件。</block>
   <block id="2aaad98bfcfbd95f21871cf486a3243c" category="inline-link">升级 vSphere ，包括 vCenter Server ， ESXi ， VM 和其他 VMware 组件</block>
-  <block id="f23d91ab86d1cf2e82bd86fd860c8585" category="list-text"><block ref="f0107c2e24795b3c47b3466dee69927b" category="inline-link-rx"></block>(英文)</block>
   <block id="f77430f8b3c4f14f1dcd175dca1d54cf" category="paragraph">您应升级到适用于vCenter Server 5.0或更高版本的NetApp Element 插件、以便能够在VMware vCenter 7.0 Update 3中部署此插件、而无需应用临时解决策。</block>
   <block id="7389b01d5fe0e17f5523a7fb85295f91" category="inline-link">此知识库文章</block>
   <block id="af5fe52fe204cf15311c07d5bf36b9a1" category="paragraph">使用适用于vCenter Server 4.x的Element插件升级到VMware vCenter Server 7.0 Update 3时、此插件无法部署。要使用Spring Framework 4解决此问题，请参见<block ref="770c119932f7fa962a47dc0795db1af6" category="inline-link-rx"></block>。</block>
@@ -5903,7 +5899,6 @@
   <block id="fa41977f5f08e489eda2b2bb50a4de69" category="paragraph">SSH 服务保持启用状态的时间量。</block>
   <block id="a1c5aa843b544d43737e68bf101cd099" category="summary">您可以使用 EnableEncryptionAtRest 方法在集群上启用高级加密标准 \ （ AES\ ） 256 位空闲加密，以便集群可以管理用于每个节点上的驱动器的加密密钥。默认情况下、不会启用此功能。</block>
   <block id="f7fbdcd0f959ea03f9c9fe10c1f436f5" category="paragraph">您可以使用<block ref="b0a869229fda0716942c6afbaa26ba2a" prefix=" " category="inline-code"></block>方法在集群上启用高级加密标准(Advanced Encryption Standard、AES) 256位空闲加密、以便集群可以管理用于每个节点上的驱动器的加密密钥。默认情况下、不会启用此功能。</block>
-  <block id="8645b3842f2ebbd31ef1556eca13e734" category="admonition">要查看集群上空闲加密和/或空闲软件加密的当前状态，请使用<block ref="266af3c6722606b03dffbc748cf8f335" category="inline-link-macro-rx"></block>。您可以使用<block ref="2132cae62c1d77dfa3dd7c3447c77cf5" prefix=" " category="inline-code"></block> <block ref="71cd4d0c7a8355e8bd1074b7039cdde9" category="inline-link-macro-rx"></block>。</block>
   <block id="9a3e77d40a36fc6582491b29c79ad64a" category="inline-link-macro">创建集群方法</block>
   <block id="54345a69ac071e42416d101550699426" category="admonition">此方法不会启用空闲软件加密。只能使用<block ref="8a6d1a92159080729def71f4e50f41d0" prefix=" " category="inline-code"></block>设置为<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>的来完成此<block ref="156163f61ad8e976859b5234666eb7c2" category="inline-link-macro-rx"></block>操作。</block>
   <block id="79c6818b5a784bd2a9784bba4752ebda" category="paragraph">启用空闲加密后，集群会自动在内部管理集群中每个节点上的驱动器的加密密钥。</block>
@@ -9195,7 +9190,6 @@
   <block id="99494896be55aff6e412f1ef0dd3ca4c" category="list-text"><block ref="1f3c51825f286c5250086b5376a2ce29" category="inline-xref-macro-rx"></block></block>
   <block id="e56841e919b23e1af6ae192bcf82f545" category="list-text"><block ref="b85ef421159ab16d832d7cee8cebee71" category="inline-xref-macro-rx"></block></block>
   <block id="e73fbad1f8418c19025f40cdb1b36fc8" category="inline-link">TR-4741 ： NetApp Element 软件远程复制</block>
-  <block id="47fd1428a184377839b3521d9b89b20c" category="paragraph">有关详细信息，请参见<block ref="5fe7d084aafda4fb5c53715a85948ffe" category="inline-link-rx"></block>。</block>
   <block id="ff5dd3355a0a16a7f2fc734ab2229851" category="section-title">集群之间的同步和异步复制</block>
   <block id="697cef1ff0b4e36164796a8a21f78548" category="paragraph">对于运行 NetApp Element 软件的集群，可以通过实时复制快速创建卷数据的远程副本。</block>
   <block id="0389e516b3bf2b6b34e9309ede779a02" category="paragraph">您可以将一个存储集群与最多四个其他存储集群配对。您可以从集群对中的任一集群同步或异步复制卷数据，以实现故障转移和故障恢复。</block>
@@ -9221,7 +9215,6 @@
   <block id="2e02ae79fb104d3c608baf3627930722" category="paragraph">主存储中的源卷与二级存储中的目标卷之间的关系称为数据保护关系。这些集群称为卷所在的端点，包含复制数据的卷必须建立对等关系。通过对等关系，集群和卷可以安全地交换数据。</block>
   <block id="e8eee300f648a33639310b4549ed1596" category="paragraph">SnapMirror 在 NetApp ONTAP 控制器上本机运行，并集成到 Element 中，而 Element 则在 NetApp HCI 和 SolidFire 集群上运行。控制 SnapMirror 的逻辑驻留在 ONTAP 软件中；因此，所有 SnapMirror 关系都必须至少涉及一个 ONTAP 系统才能执行协调工作。用户主要通过 Element UI 管理 Element 和 ONTAP 集群之间的关系；但是，某些管理任务位于 NetApp ONTAP System Manager 中。用户还可以通过命令行界面和 API 管理 SnapMirror ，这些 CLI 和 API 在 ONTAP 和 Element 中均可用。</block>
   <block id="d95bb83fde5706bb5398bb94c8106f7f" category="inline-link">TR-4651 ： NetApp SolidFire SnapMirror 架构和配置</block>
-  <block id="05f383efa661d49bdf542c9e9e281e05" category="paragraph">请参见<block ref="eea98aade109823686927fb53af38fab" category="inline-link-rx"></block>(需要登录)</block>
   <block id="52b5fba1a62806fe621dc72218549e9c" category="paragraph">您必须使用 Element 软件在集群级别手动启用 SnapMirror 功能。默认情况下， SnapMirror 功能处于禁用状态，并且在新安装或升级过程中不会自动启用此功能。</block>
   <block id="237207bac5b8584faf6c036500958cad" category="paragraph">启用 SnapMirror 后，您可以从 Element 软件中的数据保护选项卡创建 SnapMirror 关系。</block>
   <block id="5ce5a4c32220893139a79b7961ce29a5" category="paragraph">NetApp Element 软件 10.1 及更高版本支持使用 SnapMirror 功能在 ONTAP 系统中复制和还原快照。</block>
@@ -11384,7 +11377,6 @@
   <block id="a79cb3c0c41f2980c808abd31214f26a" category="list-text">要访问节点，需要使用 TUI 中显示的 DHCP 地址。您不能使用 DHCP 地址向集群添加节点。</block>
   <block id="c1c637b63838f91031e49aa3dd20939f" category="admonition">您应该为不同的子网配置管理（绑定 1G ）和存储（绑定 10G ）接口。通过绑定 1G 接口发送存储流量时，为同一子网发生原因路由问题配置了绑定 1G 和绑定 10G 接口。如果必须使用同一子网传输管理和存储流量，请手动配置管理流量以使用绑定 10G 接口。您可以使用每个节点 UI 的 * 集群设置 * 页面对每个节点执行此操作。</block>
   <block id="9a9bf61b133c1439f32f8de2ecf7f250" category="list-text">在浏览器窗口中，输入节点的 DHCP IP 地址。</block>
-  <block id="718388f7f39786bf6b8ca4edf8cd3017" category="paragraph">您必须添加扩展<block ref="65778ce6afafe9fc8742fe8dcf019b7c" prefix=" " category="inline-code"></block>才能访问此节点；例如<block ref="64eb6fac063c2a648507a12b0411ac57" category="inline-link-rx"></block>。</block>
   <block id="0eabcd304191abe63eb43a2958ee36b2" category="paragraph">此时将打开 * 网络设置 * 选项卡，并显示 * 绑定 1G* 部分。</block>
   <block id="7875e585e67cbdd7085c34c30f00f523" category="list-text">输入 1G 管理网络设置。</block>
   <block id="686752ec008c4578ce224ca405d8d384" category="list-text">单击 * 应用更改 * 。</block>
@@ -11777,11 +11769,8 @@
   <block id="c790184773e8ef26c5af49a38611a471" category="summary">您可以使用集成备份功能备份卷快照。您可以将快照从 SolidFire 集群备份到外部对象存储或另一个 SolidFire 集群。将快照备份到外部对象存储时，必须与允许读 / 写操作的对象存储建立连接。</block>
   <block id="324fcb27182f60b1051fad39c080b193" category="doc">备份卷快照</block>
   <block id="6e589b33a7a384693052e3d15301e081" category="inline-link-macro">将卷快照备份到 Amazon S3 对象存储</block>
-  <block id="4e385daedad4a81e3776afbca9ea07a7" category="list-text"><block ref="4e385daedad4a81e3776afbca9ea07a7" category="inline-link-macro-rx"></block></block>
   <block id="eea58b3659596532522a08f03fb583b8" category="inline-link-macro">将卷快照备份到 OpenStack Swift 对象存储</block>
-  <block id="3a50ce5f4085bd0f74405eb1c25f6cc9" category="list-text"><block ref="3a50ce5f4085bd0f74405eb1c25f6cc9" category="inline-link-macro-rx"></block></block>
   <block id="5a7756bec1a6d55954906bd35365f9ec" category="inline-link-macro">将卷快照备份到 SolidFire 集群</block>
-  <block id="091f209abc9bb34dfb86fb2328780ca1" category="list-text"><block ref="091f209abc9bb34dfb86fb2328780ca1" category="inline-link-macro-rx"></block></block>
   <block id="a5599a81e172ea6d5e660325bbceb5b2" category="paragraph">创建新集群会将节点初始化为集群的通信所有者，并为集群中的每个节点建立网络通信。此过程仅对每个新集群执行一次。您可以使用 Element UI 或 API 创建集群。</block>
   <block id="f2745628cc07bb3b82829036c93612f2" category="summary">存储节点包含一个或多个物理驱动器，用于存储集群的部分数据。成功将驱动器添加到集群后，集群将利用驱动器的容量和性能。</block>
   <block id="63a6b9b3b5de50d32228700cfe042610" category="doc">驱动器</block>
@@ -11968,7 +11957,6 @@
   <block id="652b436094afd98b18ad951a7e4f0cf8" category="inline-link-macro">重新设置 REST 主密钥的软件加密密钥</block>
   <block id="ae4a16d89bc4c1fd130a91d5ecdfc931" category="list-text"><block ref="ae4a16d89bc4c1fd130a91d5ecdfc931" category="inline-link-macro-rx"></block></block>
   <block id="79d1229024e48c87f7159e2ee740ed37" category="inline-link-macro">恢复不可访问或无效的身份验证密钥</block>
-  <block id="f1f67a70bba55b3b1679804cb55ea1d1" category="list-text"><block ref="f1f67a70bba55b3b1679804cb55ea1d1" category="inline-link-macro-rx"></block></block>
   <block id="06d3db643866a2632d21e5d307008e72" category="list-text"><block ref="06d3db643866a2632d21e5d307008e72" category="inline-link-macro-rx"></block></block>
   <block id="62d29aedc6ec474773233dd69dabe7c4" category="inline-link-macro">CreateCluster API ，可用于启用空闲软件加密</block>
   <block id="06a6eb8faffa4fc7f7366b906cc31075" category="list-text"><block ref="06a6eb8faffa4fc7f7366b906cc31075" category="inline-link-macro-rx"></block></block>
@@ -12303,4 +12291,15 @@
   <block id="99eb6e1c13e9ae0bb02e022566f20121" category="paragraph">包括为计划指定的唯一名称，所创建快照的保留期限以及从中创建快照的卷的卷 ID 。有效值：</block>
   <block id="65dc2083558f47cd1151751a12c24549" category="paragraph">浮点或整数、具体取决于同步操作的类型</block>
   <block id="e43f2538484fde027e53efbedb634fce" category="list-text">从NetApp支持站点上的页面下载适用于您的安装的OVA或ISO<block ref="00b11b6abe7f0003872aa657422c59ae" category="inline-link-macro-rx"></block>。</block>
+  <block id="7ed2110dda4e725820c86037ab54d196" category="paragraph">有关详细信息，请参见<block ref="45dfeaa43e9f1dd00a21977e432c35a4" category="inline-link-rx"></block>。</block>
+  <block id="918bb3feb315cdf5db1f413658638047" category="paragraph">请参阅<block ref="30ea8dea45042e51ef9f45277c3dcfc3" category="inline-link-rx"></block>。</block>
+  <block id="7636dca63eddcafe87de7e1081e289e7" category="paragraph">必须添加扩展<block ref="65778ce6afafe9fc8742fe8dcf019b7c" prefix=" " category="inline-code"></block>才能访问节点；例如<block ref="2850388226cc1c7ede5d219e01c8bc62" prefix=" " category="inline-code"></block>。</block>
+  <block id="806181f8afe63ab2176a9668a88c16e9" category="list-text"><block ref="806181f8afe63ab2176a9668a88c16e9" category="inline-link-macro-rx"></block></block>
+  <block id="d64340614e4fc20e1f47eeb584d094b6" category="list-text"><block ref="d64340614e4fc20e1f47eeb584d094b6" category="inline-link-macro-rx"></block></block>
+  <block id="a08e600a476d03b143ad4ffabcc3dc36" category="list-text"><block ref="a08e600a476d03b143ad4ffabcc3dc36" category="inline-link-macro-rx"></block></block>
+  <block id="522cf0a888d1be9011076f48d51639fb" category="list-text"><block ref="522cf0a888d1be9011076f48d51639fb" category="inline-link-macro-rx"></block></block>
+  <block id="8ef81753d43b8f7b12c2601a41b53530" category="admonition">操作系统处理克隆卷的方式各不相同。VMware ESXi 会将克隆的卷视为卷副本或快照卷。卷将是可用于创建新数据存储区的设备。有关装载克隆卷和处理快照 LUN 的更多信息，请参见 VMware 文档，网址为<block ref="ed78ca20201e0d97922bb7ec954c00dd" category="inline-link-rx"></block>和<block ref="4607ed04fc8b634ce18da0fe1bdcd41c" category="inline-link-rx"></block>。</block>
+  <block id="055c37e82a2e8b5a5c2d073fe46d98bb" category="list-text"><block ref="055c37e82a2e8b5a5c2d073fe46d98bb" category="inline-link-macro-rx"></block></block>
+  <block id="c31ff914893a6941b1e7621565be0d0c" category="list-text"><block ref="c31ff914893a6941b1e7621565be0d0c" category="inline-link-macro-rx"></block></block>
+  <block id="fe3c28c386d2be6c3cbda4b2feb01c29" category="list-text"><block ref="e8348e5b207b91893f9322900bc614aa" category="inline-link-rx"></block>.</block>
 </blocks>

@@ -28,6 +28,7 @@ image::../media/snapmirror_element_failback2.png[SnapMirror Element 故障回退
 
 
 
+[[find-more-information]]
 == 了解更多信息
 
 * xref:task_snapmirror_perform_failback_when_source_volume_exists.adoc[如果源卷仍存在，请执行故障恢复]

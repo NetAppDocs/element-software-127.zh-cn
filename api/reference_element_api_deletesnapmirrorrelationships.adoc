@@ -15,6 +15,7 @@ Element Web UI可通过 `DeleteSnapMirrorRelationships`方法删除源端点与�
 
 
 
+[[parameters]]
 == 参数
 
 此方法具有以下输入参数：
@@ -50,6 +51,7 @@ xref:reference_element_api_snapmirrorvolumeinfo.adoc[snapMirrorVolumeInfo]阵列
 |===
 
 
+[[return-values]]
 == 返回值
 
 此方法具有以下返回值：
@@ -70,6 +72,7 @@ JSON 对象
 |===
 
 
+[[new-since-version]]
 == 自版本以来的新增功能
 
 10.1

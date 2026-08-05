@@ -17,6 +17,7 @@ Element 存储集群中的多租户网络允许在不同逻辑网络上的多个
 
 
 
+[[prerequisites-for-setting-up-a-multitenant-virtual-network]]
 == 设置多租户虚拟网络的前提条件
 
 * 您必须已确定要分配给存储节点上虚拟网络的客户端网络 IP 地址块。
@@ -25,6 +26,7 @@ Element 存储集群中的多租户网络允许在不同逻辑网络上的多个
 
 
 
+[[virtual-networking-order-of-operations]]
 == 虚拟网络操作顺序
 
 . 使用 AddVirtualNetwork 方法批量配置输入的 IP 地址。
@@ -42,6 +44,7 @@ Element 存储集群中的多租户网络允许在不同逻辑网络上的多个
 
 
 
+[[find-more-information]]
 == 了解更多信息
 
 * xref:concept_element_api_virtual_network_naming_conventions.adoc[虚拟网络命名约定]

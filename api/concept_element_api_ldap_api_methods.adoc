@@ -22,6 +22,7 @@ summary: 您可以使用轻型目录访问协议 \ （ ldap\ ）对 Element 存�
 
 
 
+[[find-more-information]]
 == 了解更多信息
 
 * https://docs.netapp.com/us-en/element-software/index.html["SolidFire 和 Element 软件文档"]

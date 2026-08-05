@@ -28,6 +28,7 @@ NOTE: 集群配对要求管理网络上的节点之间具有完全连接。复�
 
 
 
+[[find-more-information]]
 == 了解更多信息
 
 xref:reference_prereq_network_port_requirements.adoc[网络端口要求]

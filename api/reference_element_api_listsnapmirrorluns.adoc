@@ -15,6 +15,7 @@ Element软件Web UI可通过 `ListSnapMirrorLuns`方法列出远程ONTAP集群�
 
 
 
+[[parameters]]
 == 参数
 
 此方法具有以下输入参数：
@@ -50,6 +51,7 @@ xref:reference_element_api_snapmirrorvolumeinfo.adoc[snapMirrorVolumeInfo]
 |===
 
 
+[[return-values]]
 == 返回值
 
 此方法具有以下返回值：
@@ -68,6 +70,7 @@ xref:reference_element_api_snapmirrorluninfo.adoc[snapMirrorLunInfo]阵列
 |===
 
 
+[[new-since-version]]
 == 自版本以来的新增功能
 
 10.1

@@ -57,6 +57,7 @@ Element 12.2管理节点是一种可选升级。现有部署不需要此功能�
 
 
 
+[[step-1-download-iso-or-ova-and-deploy-the-vm]]
 == 第1步：下载ISO或OVA并部署虚拟机
 
 从NetApp支持站点下载相应的ISO或OVA并安装虚拟机。
@@ -106,6 +107,8 @@ NOTE: 使用映像安装管理节点可能会导致在显示启动屏幕之前�
 
 
 
+[[step-2-create-the-management-node-admin-and-configure-the-network]]
+[[create_mnode_admin]]
 == 第2步：创建管理节点管理员并配置网络
 
 虚拟机安装完成后、创建管理节点管理员用户并配置管理节点网络。
@@ -137,6 +140,7 @@ NOTE: 如果您需要一个额外的NIC来隔离存储流量，请参阅有关�
 
 
 
+[[step-3-configure-time-sync]]
 == 第3步：配置时间同步
 
 在设置管理节点之前、请同步管理节点和存储集群之间的时间。
@@ -158,7 +162,7 @@ sudo service ntpd stop
 . 编辑NTP配置文件 `/etc/ntp.conf`：
 +
 .. 注释掉默认服务器(`server 0.gentoo.pool.ntp.org`)，方法是在每个服务器前面添加 `#`。
-.. 为要添加的每个默认时间服务器添加新行。默认时间服务器必须与要在中使用的存储集群上使用的NTP服务器相同。link:task_mnode_install.html#set-up-the-management-node["后续步骤"]
+.. 为要添加的每个默认时间服务器添加一行。默认时间服务器必须与您将在 <<set-up-the-management-node,后续步骤>> 中使用的存储集群上使用的 NTP 服务器相同。
 +
 [listing]
 ----
@@ -213,10 +217,11 @@ NOTE: 如果您将来对虚拟机进行更改，请勿启用此选项。
 
 
 
-NOTE: 请勿在完成时间同步配置后编辑NTP、因为当您在管理节点上运行时、它会影响NTPlink:task_mnode_install.html#set-up-the-management-node["设置命令"]。
+NOTE: 请勿在完成时间同步配置后编辑NTP、因为当您在管理节点上运行时、它会影响NTP<<step_6_recover_mnode_redeploy,重新部署命令>>。
 
 
 
+[[step-4-set-up-the-management-node]]
 == 第4步：设置管理节点
 
 使用命令配置管理节点 `setup-mnode`。
@@ -240,7 +245,7 @@ NOTE: 命令名称的缩写形式为圆括号（），可替换为全名。
 
 +
 *** *-mnode_admin_user （ -mu ） [username]* ：管理节点管理员帐户的用户名。这可能是您用于登录到管理节点的用户帐户的用户名。
-*** *-storage_mvip （ -SM ） [MVIP address]* ：运行 Element 软件的存储集群的管理虚拟 IP 地址（ MVIP ）。为管理节点配置与在中使用的存储集群相同的存储集群link:task_mnode_install.html#configure-time-sync["NTP 服务器配置"]。
+*** *--storage_mvip (-sm) [MVIP地址]*：运行 Element 软件的存储集群的管理虚拟 IP 地址 (MVIP)。使用与 link:task_mnode_recover.html#configure-time-sync["NTP 服务器配置"] 期间所用的相同存储集群配置管理节点。
 *** *--storage_username (-su)[USERNAME]*：参数指定的集群的存储集群管理员用户名 `--storage_mvip`。
 *** * — -metry_active （ -t ） [true]* ：保留值 true ，以便通过 Active IQ 收集数据以进行分析。
 
@@ -283,6 +288,7 @@ NOTE: 为永久性卷使用与集群上任何现有帐户名称不同的唯一�
 
 
 
+[[step-5-configure-controller-assets]]
 == 第5步：配置控制器资产
 
 找到安装ID并添加vCenter控制器资产。
@@ -345,6 +351,7 @@ NOTE: 您应在vCenter中创建新的NetApp HCC角色以添加控制器子资产
 
 
 
+[[find-more-information]]
 == 了解更多信息
 
 * link:../concepts/concept_solidfire_concepts_volumes.html#persistent-volumes["永久性卷"]

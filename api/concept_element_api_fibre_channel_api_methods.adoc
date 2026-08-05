@@ -22,6 +22,7 @@ summary: 您可以使用光纤通道 API 方法添加，修改或删除存储集
 
 
 
+[[find-more-information]]
 == 了解更多信息
 
 * https://docs.netapp.com/us-en/element-software/index.html["SolidFire 和 Element 软件文档"]

@@ -17,6 +17,7 @@ summary: 您可以使用 CreateVolume 方法在集群上创建新的空卷。卷
 
 
 
+[[parameters]]
 == 参数
 
 此方法具有以下输入参数：
@@ -87,6 +88,7 @@ summary: 您可以使用 CreateVolume 方法在集群上创建新的空卷。卷
 |===
 
 
+[[return-values]]
 == 返回值
 
 此方法具有以下返回值：
@@ -125,6 +127,7 @@ JSON 对象
 |===
 
 
+[[request-example]]
 == 请求示例
 
 此方法的请求类似于以下示例：
@@ -155,6 +158,7 @@ JSON 对象
 ----
 
 
+[[response-example]]
 == 响应示例
 
 此方法返回类似于以下示例的响应：
@@ -223,12 +227,14 @@ JSON 对象
 ----
 
 
+[[new-since-version]]
 == 自版本以来的新增功能
 
 9.6
 
 
 
+[[find-more-information]]
 == 了解更多信息
 
 xref:reference_element_api_getdefaultqos.adoc[GetDefaultQoS]

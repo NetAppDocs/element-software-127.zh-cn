@@ -36,6 +36,7 @@ NOTE: 如果您未依次更新管理服务和 Element 存储，则无法使用�
 
 
 
+[[upgrade-a-management-node-to-version-12-5-or-later-from-version-12-3-x-or-later]]
 == 将管理节点从12.3.x或更高版本升级到版本12.5或更高版本
 
 您可以将管理节点从12.3.x或更高版本原位升级到版本12.5或更高版本、而无需配置新的管理节点虚拟机。
@@ -129,6 +130,7 @@ IMPORTANT: 如果先前已在管理节点上禁用SSH功能、则需要在已恢
 
 
 
+[[reconfigure-authentication-using-the-management-node-rest-api]]
 == 使用管理节点 REST API 重新配置身份验证
 
 如果已按顺序升级（ 1 ）个管理服务和（ 2 ）个 Element 存储，则可以保留现有管理节点。如果您遵循了其他升级顺序，请参见原位管理节点升级过程。

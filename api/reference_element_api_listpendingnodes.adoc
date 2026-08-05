@@ -15,18 +15,21 @@ summary: 您可以使用 ListPendingNodes 方法列出系统中的待定存储�
 
 
 
+[[ipv4-and-ipv6-management-addresses]]
 == IPv4 和 IPv6 管理地址
 
 请注意、 `ListPendingNodes`不会列出管理IP地址(MIP)和管理虚拟IP地址(MVIP)的地址类型不同的待定节点。例如、如果某个待定节点具有IPv6 MVIP和IPv4 MIP、则 `ListPendingNodes`不会在结果中包含该节点。
 
 
 
+[[parameters]]
 == 参数
 
 此方法没有输入参数。
 
 
 
+[[return-value]]
 == 返回值
 
 此方法具有以下返回值：
@@ -45,6 +48,7 @@ xref:reference_element_api_pendingnode.adoc[pendingNode]阵列
 |===
 
 
+[[request-example]]
 == 请求示例
 
 此方法的请求类似于以下示例：
@@ -59,6 +63,7 @@ xref:reference_element_api_pendingnode.adoc[pendingNode]阵列
 ----
 
 
+[[response-example]]
 == 响应示例
 
 此方法返回类似于以下示例的响应：
@@ -95,12 +100,14 @@ xref:reference_element_api_pendingnode.adoc[pendingNode]阵列
 ----
 
 
+[[new-since-version]]
 == 自版本以来的新增功能
 
 9.6
 
 
 
+[[find-more-information]]
 == 了解更多信息
 
 xref:reference_element_api_addnodes.adoc[添加节点]

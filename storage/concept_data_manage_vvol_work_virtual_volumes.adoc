@@ -27,6 +27,7 @@ NOTE: 如果您已在 vCenter 中注册了 VASA Provider ，则可通过升级�
 
 
 
+[[find-more-information]]
 == 了解更多信息
 
 * xref:task_data_manage_vvol_enable_virtual_volumes.adoc[启用虚拟卷]
